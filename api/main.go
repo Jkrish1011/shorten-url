@@ -12,6 +12,8 @@ import (
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/:url", routes.ResolveURL)
+
+	// this function will take the given url and shorten it for the user.
 	app.Post("/api/v1", routes.ShortenURL)
 }
 
