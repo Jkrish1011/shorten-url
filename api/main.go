@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/Jkrish1011/shorten-url/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
@@ -23,7 +24,7 @@ func main() {
 		fmt.Println(err)
 	}
 	app := fiber.New()
-	app.User(logger.New())
+	app.Use(logger.New())
 
 	setupRoutes(app)
 
