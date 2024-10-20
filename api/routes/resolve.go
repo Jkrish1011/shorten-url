@@ -6,7 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func ResolveURL(c *fiber.Ctx) {
+func ResolveURL(c *fiber.Ctx) error {
 	// Get the url from the parameters passed in.
 	url := c.Params("url")
 
@@ -21,7 +21,7 @@ func ResolveURL(c *fiber.Ctx) {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "cannot cannot to DB"})
 	}
 
-	rInt := database.CreateClient(1)
+	rInr := database.CreateClient(1)
 	defer rInr.Close()
 
 	_ = rInr.Incr(database.Ctx, "counter")
